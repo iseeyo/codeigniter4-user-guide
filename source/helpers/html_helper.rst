@@ -1,6 +1,6 @@
-###########
+###############
 HTML 辅助函数
-###########
+###############
 
 HTML 辅助函数包含的函数辅助 HTML 运行。
 
@@ -43,9 +43,9 @@ HTML 辅助函数使用下面的代码加载::
 
 此外，组合数组能被作为第一参数传达，为了完成控制额外的所有属性和值。 如果不提供 *alt* 属性，CodeIgniter 将产生空字符串。
 
-    事例::
+    例如::
 
-        $imageProperties = array(
+        $imageProperties = [
             'src'    => 'images/picture.jpg',
             'alt'    => 'Me, demonstrating how to eat 4 slices of pizza at one time',
             'class'  => 'post_images',
@@ -53,7 +53,7 @@ HTML 辅助函数使用下面的代码加载::
             'height' => '200',
             'title'  => 'That was quite a night',
             'rel'    => 'lightbox'
-        );
+        ];
 
         img($imageProperties);
         // <img src="http://site.com/index.php/images/picture.jpg" alt="Me, demonstrating how to eat 4 slices of pizza at one time" class="post_images" width="200" height="200" title="That was quite a night" rel="lightbox" />
@@ -69,18 +69,17 @@ HTML 辅助函数使用下面的代码加载::
     :returns:   HTML link tag
     :rtype: string
 
-     让你创建 HTML <link /> tags. 这对样式表链接是有用的,和其他链接一样。参数是 *href* ，带着可选择的 *rel*,
+    让你创建 HTML <link /> tags. 这对样式表链接是有用的,和其他链接一样。参数是 *href* ，带着可选择的 *rel*,
     *type*, *title*, *media* 和 *indexPage*.
 
     *indexPage* 是 boolean 值并规定如果 *href* 将经由 ``$config['indexPage']`` 被添加到地址并创建有明确说明的页面。
-     
 
-    事例::
+    例如::
 
         echo link_tag('css/mystyles.css');
         // <link href="http://site.com/css/mystyles.css" rel="stylesheet" type="text/css" />
 
-    更多事例::
+    更多示例::
 
         echo link_tag('favicon.ico', 'shortcut icon', 'image/ico');
         // <link href="http://site.com/favicon.ico" rel="shortcut icon" type="image/ico" />
@@ -90,12 +89,12 @@ HTML 辅助函数使用下面的代码加载::
 
     间隔地，为了完全控制额外的所有属性和值组合数组能被传达到 ``link_tag()`` 函数::
 
-        $link = array(
+        $link = [
             'href'  => 'css/printer.css',
             'rel'   => 'stylesheet',
             'type'  => 'text/css',
             'media' => 'print'
-        );
+        ];
 
         echo link_tag($link);
         // <link href="http://site.com/css/printer.css" rel="stylesheet" type="text/css" media="print" />
@@ -110,16 +109,15 @@ HTML 辅助函数使用下面的代码加载::
     让你创建 HTML <script></script> tags. 参数是 *src*, 与可选的 *indexPage* 一起.
 
 	*indexPage* 是 boolean 值并规定如果 *src* 将经由 ``$config['indexPage']`` 被添加到地址并创建有明确说明的页面。
-    
 
-    事例::
+    例如::
 
         echo script_tag('js/mystyles.js');
         // <script src="http://site.com/js/mystyles.js" type="text/javascript"></script>
 
-间隔地，为了完全控制额外的所有属性和值组合数组能被通过 ``script_tag()`` 函数::
+    间隔地，为了完全控制额外的所有属性和值组合数组能被通过 ``script_tag()`` 函数::
 
-        $script = array('src'  => 'js/printer.js');
+        $script = ['src'  => 'js/printer.js'];
 
         echo script_tag($script);
         // <script src="http://site.com/js/printer.js" type="text/javascript"></script>
@@ -133,17 +131,17 @@ HTML 辅助函数使用下面的代码加载::
 
    容许你从简单或者多倍空间的数组产生无序 HTML 目录。事例:::
 
-        $list = array(
+        $list = [
             'red',
             'blue',
             'green',
             'yellow'
-        );
+        ];
 
-        $attributes = array(
+        $attributes = [
             'class' => 'boldlist',
             'id'    => 'mylist'
-        );
+        ];
 
         echo ul($list, $attributes);
 
@@ -160,40 +158,40 @@ HTML 辅助函数使用下面的代码加载::
 
     下面是更复杂的事例，使用多维空间的数组::
 
-        $attributes = array(
+        $attributes = [
             'class' => 'boldlist',
             'id'    => 'mylist'
-        );
+        ];
 
-        $list = array(
-            'colors' => array(
+        $list = [
+            'colors' => [
                 'red',
                 'blue',
                 'green'
-            ),
-            'shapes' => array(
+            ],
+            'shapes' => [
                 'round',
                 'square',
-                'circles' => array(
+                'circles' => [
                     'ellipse',
                     'oval',
                     'sphere'
-                )
-            ),
-            'moods'  => array(
+                ]
+            ],
+            'moods'  => [
                 'happy',
-                'upset'   => array(
-                    'defeated' => array(
+                'upset'   => [
+                    'defeated' => [
                         'dejected',
                         'disheartened',
                         'depressed'
-                    ),
+                    ],
                     'annoyed',
                     'cross',
                     'angry'
-                )
-            )
-        );
+                ]
+            ]
+        ];
 
         echo ul($list, $attributes);
 
@@ -339,7 +337,7 @@ HTML 辅助函数使用下面的代码加载::
     :returns:   HTML source tag
     :rtype: string
 
-   让你创建 HTML <source /> tags. 第一个参数包含起源 source. 事例::
+   让你创建 HTML <source /> tags. 第一个参数包含起源 source. 例如::
 
         echo source('movie.mp4', 'video/mp4', 'class="test"');
         // <source src="movie.mp4" type="video/mp4" class="test" />
@@ -353,8 +351,7 @@ HTML 辅助函数使用下面的代码加载::
     :returns:   HTML embed tag
     :rtype: string
 
-   让你创建 HTML <embed /> tags.第一参数包含 embed source. 事例::
-   
+   让你创建 HTML <embed /> tags.第一参数包含 embed source. 例如::
 
         echo embed('movie.mov', 'video/quicktime', 'class="test"');
         // <embed src="movie.mov" type="video/quicktime" class="test"/>
@@ -402,8 +399,7 @@ HTML 辅助函数使用下面的代码加载::
     :returns:   HTML param tag
     :rtype: string
 
-     让你创建 HTML <param /> tags. 第一个参数包含 
-    param source. 事例::
+    让你创建 HTML <param /> tags. 第一个参数包含 param source. 事例::
 
         echo param('movie.mov', 'video/quicktime', 'class="test"');
         // <param src="movie.mov" type="video/quicktime" class="test"/>
@@ -439,10 +435,9 @@ HTML 辅助函数使用下面的代码加载::
 
     接下来的是重定义 doctype 选择的目录。
     这些是可设置的， 被从 `application/Config/DocTypes.php` 出栈,或者在你的 `.env` 结构里它们能被加载。
-    
 
     =============================== =================== ==================================================================================================================================================
-    文档类型                   选项              结果
+    文档类型                       	 选项                 结果
     =============================== =================== ==================================================================================================================================================
     XHTML 1.1                       xhtml11             <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
     XHTML 1.0 Strict                xhtml1-strict       <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
